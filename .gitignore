@@ -1,0 +1,9 @@
+# Ignore the generated model files
+model/
+
+# Ignore datasets
+data/
+
+# Ignore Python cache
+__pycache__/
+*.pyc

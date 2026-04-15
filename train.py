@@ -1,14 +1,20 @@
+import pandas as pd
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import CountVectorizer
 import pickle
 import os
-X = ["Great product,highly recommended","Terrible service,very disappointed","I love this application","Worst experience ever, do not buy"]
-y=["positive","negative","positive","negative"]
+print("Loading dataset from data/train.csv...")
+df = pd.read_csv('data/train.csv')
+text_column='review'      
+label_column='sentiment'  
+X=df[text_column].values
+y=df[label_column].values
+print("Training the Naive Bayes model...")
 vectorizer=CountVectorizer()
 X_vec=vectorizer.fit_transform(X)
 model=MultinomialNB()
 model.fit(X_vec,y)
 os.makedirs('model',exist_ok=True)
-pickle.dump(model, open('model/model.pkl','wb'))
+pickle.dump(model,open('model/model.pkl','wb'))
 pickle.dump(vectorizer,open('model/vectorizer.pkl','wb'))
-print("Success: NLP Sentiment Model and Vectorizer trained and saved in 'model/' directory!")
+print("Success: Model trained on real data and saved to 'model/'")
