@@ -4,13 +4,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 import pickle
 import os
 print("Loading dataset from data/train.csv...")
-df = pd.read_csv('data/train.csv')
-text_column='review'      
-label_column='sentiment'  
+df=pd.read_csv('data/train.csv', nrows=5000)
+text_column='content'      
+label_column='label'  
 X=df[text_column].values
 y=df[label_column].values
 print("Training the Naive Bayes model...")
-vectorizer=CountVectorizer()
+vectorizer=CountVectorizer(max_features=3000)
 X_vec=vectorizer.fit_transform(X)
 model=MultinomialNB()
 model.fit(X_vec,y)
