@@ -4,13 +4,13 @@ This repository contains a complete Machine Learning Operations (MLOps) pipeline
 
 The project demonstrates the ability to transition a machine learning model from a local training environment into a production-ready, containerized API using Docker and Flask.
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Machine Learning:** Scikit-learn (Naive Bayes, CountVectorizer)
 * **API Framework:** Flask
 * **Containerization:** Docker, Docker Hub
 * **Language:** Python 3.9
 
-## 📁 Project Structure
+## Project Structure
 ```text
 docker-mlops-sentiment-api/
 ├── model/                  # Generated after training (Not tracked in Git)
